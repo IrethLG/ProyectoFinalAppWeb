@@ -9,15 +9,7 @@ GO
  FROM Empleado
   where estatus=1
   GO
-  -----Consulta de  ventas que se hicieron entre '2021-01-23' al '2021-06-15' y muestra la informacion de cual cliente la hizo
-SELECT (T1.nombre) NombreCliente,
-(T1.apPaterno)Apellidos,
-(T1.telefono)Telefono,
-(T1.direccion)Direccion
-FROM Cliente AS T1 INNER JOIN Venta AS T2 ON T1.idCliente = T2.idVenta
-WHERE T2.fecha >= '2021-01-23' AND T2.fecha <= '2021-06-15'
 
-GO
 
  -------Consulta que muestra el nombre del prudcto y nombre de la categoria 
 select T1.idProducto, T1.nombre NombreProducto,
@@ -80,7 +72,7 @@ select nombre, SUBSTRING(nombre, 1, 3) as Primeras3Letras,
 getdate () as fecha
 from Producto
 GO
----Vamos a obtener el número de pedidos realizados por cada cliente:
+---Vamos a obtener el nÃºmero de pedidos realizados por cada cliente:
 SELECT Cliente.Nombre, Count(Pedido.idPedido) AS NumeroPedidos FROM Pedido
 LEFT JOIN Cliente
 ON Pedido.idCliente=Cliente.idCliente
@@ -95,14 +87,6 @@ SELECT CONCAT('$', round(precio,idProducto)) as PrecioSimbolo FROM Producto
 GO
 
 -----PROCEDIMIENTOS ALMACENADOS----
----  1---Mostrar una fecha
- CREATE PROCEDURE SP_VerFecha
-   AS
-  select *from Pedido
-   where fecha=  '2021-01-23';
-   GO
-   exec SP_VerFecha 
-   GO
    ---  2---Restar existencia
    CREATE PROCEDURE SP_RestarExistencia
    @id_producto as int ,
@@ -182,8 +166,8 @@ EXEC SP_ProductosMarcas
 
 	GO
 	---------7 En el ejemplo anterior, podemos ver que al eliminar un EMPLEADO y
-	----este tiene una relación en otra tabla, lo primero que se realiza es eliminar los datos----
-	---de la tabla relacionada para terminar de eliminar EMPLEADO y este Id no esté relacionado en tablas secundarias.
+	----este tiene una relaciÃ³n en otra tabla, lo primero que se realiza es eliminar los datos----
+	---de la tabla relacionada para terminar de eliminar EMPLEADO y este Id no estÃ© relacionado en tablas secundarias.
 	
 CREATE PROCEDURE SP_eliminarEmpleado
 (
@@ -236,7 +220,7 @@ EXEC SP_GuardarActualizar @idPaquete = 4, @decripcion = 'Mascara para pestanas a
 @idPaqueteria = 1  ,@idPedido = 9
 
 ----este se inserta uno nuevo
-EXEC SP_GuardarActualizar 0, @decripcion = 'Protector Solar Facial Control De Brillo Fps 50+, 50ml', @direccion = 'Forever Living, Calz Colón 289, Primero de Cobián Centro, 27000 Torreón, Coah.' ,
+EXEC SP_GuardarActualizar 0, @decripcion = 'Protector Solar Facial Control De Brillo Fps 50+, 50ml', @direccion = 'Forever Living, Calz ColÃ³n 289, Primero de CobiÃ¡n Centro, 27000 TorreÃ³n, Coah.' ,
 @idPaqueteria = 1  ,@idPedido = 6
 select *from Paquete
 GO
@@ -322,7 +306,7 @@ join inserted as i
 on d.idSucursal=i.idSucursal
 end
 go
-UPDATE Sucursal SET direccion='Av. Del Estado 307, Tecnológico, 64700 Monterrey, N.L. ' WHERE idSucursal=1
+UPDATE Sucursal SET direccion='Av. Del Estado 307, TecnolÃ³gico, 64700 Monterrey, N.L. ' WHERE idSucursal=1
   GO
 
 
@@ -397,7 +381,7 @@ join inserted as i
 on d.idCompra=i.idCompra
 end
 go
-UPDATE Compra SET descripcion='Sombra de ojos paleta de maquillaje Contorno kit con 2 Polvo facial, 2 colorete, 1 lápiz delineador de ojos, 6 brushs y 6 de la ceja' WHERE idCompra=2
+UPDATE Compra SET descripcion='Sombra de ojos paleta de maquillaje Contorno kit con 2 Polvo facial, 2 colorete, 1 lÃ¡piz delineador de ojos, 6 brushs y 6 de la ceja' WHERE idCompra=2
 GO
  -------------TRIGGER 10------------------------------------
 CREATE TRIGGER MensajeProveedor
@@ -410,16 +394,7 @@ GO
 
 
 
-   ------------------------VIEWS
-create view vwConsulta1
-as
-SELECT (T1.nombre) NombreCliente,
-(T1.apPaterno)Apellidos,
-(T1.telefono)Telefono,
-(T1.direccion)Direccion
-FROM Cliente AS T1 INNER JOIN Venta AS T2 ON T1.idCliente = T2.idVenta
-WHERE T2.fecha >= '2021-01-23' AND T2.fecha <= '2021-06-15'
-GO
+ 
 ---------------------------------------------
 create view vwConsulta2
 as
