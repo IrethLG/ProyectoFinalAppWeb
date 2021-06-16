@@ -1,0 +1,75 @@
+﻿@model IEnumerable<BeautyStoreArisbeth.Models.Venta>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Lista de ventas</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.total)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cantidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.detalles)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idEmpleado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idProducto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idCliente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idFormaPago)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.total)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cantidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.detalles)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.estatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idEmpleado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idProducto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idCliente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idFormaPago)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idVenta }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idVenta }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idVenta })
+        </td>
+    </tr>
+}
+
+</table>

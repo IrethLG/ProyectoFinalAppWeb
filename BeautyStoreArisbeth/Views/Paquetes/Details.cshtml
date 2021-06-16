@@ -1,0 +1,58 @@
+﻿@model BeautyStoreArisbeth.Models.Paquete
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Paquete</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.decripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.decripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.direccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.direccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.estatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idPaqueteria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idPaqueteria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idPedido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idPedido)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idPaquete }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

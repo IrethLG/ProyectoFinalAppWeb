@@ -1,0 +1,45 @@
+﻿@model IEnumerable<BeautyStoreArisbeth.Models.Pedido>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Lista de pedidos</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idCliente)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.estatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idCliente)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idPedido }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idPedido }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idPedido })
+        </td>
+    </tr>
+}
+
+</table>
